@@ -11,9 +11,58 @@
 
 <body>
 
-    <div id="topojanela" id="topojanela">
-        <h1>Usuários</h1>
+    <div id="topojanela" class="topojanela">
+        <div>topo</div>
+        <div>Colaboladores</div>
+        <div>
+            <img src="/imgs/add.svg" class="btn_mainoper" title="Adicionar novo operador">
+        </div>
     </div>
+
+    <div id="novoColaborador" class="popup">
+        <div class="Janelapopup">
+            <div class="titulopopup">
+                <div>Novo Colaborador</div>
+                <img src="../../imgs/close.svg" class="btn_janelaoper" id="btn_fechar" title="Fechar janela">
+            </div>
+            <div class="corpopopup">
+                <!-- nome -->
+                <div class="campoForm">
+                    <label>Nome</label>
+                    <input type="text" name="f_nome" id="f_nome">
+                </div>
+                <!-- tipo -->
+                <div class="campoForm">
+                    <label>Tipo</label>
+                    <select name="f_tipo" id="f_tipo">
+                        <option>Selecione</option>
+                        <option>Admistrador</option>
+                    </select>
+
+                </div>
+                <!-- status -->
+                <div class="campoForm">
+                    <label>Status</label>
+                    <select name="f_status" id="f_status">
+                        <option>Selecione</option>
+                        <option value="A">Ativo</option>
+                        <option value="I">Inativo</option>
+                    </select>
+                </div>
+                <!--telefone -->
+                <div class="campoForm">
+                    <label>Telefones</label>
+                    <input type="text" name="f_tel" id="f_tel">
+                </div>
+            </div>
+            <div class="rodapepopup">
+                <button id="btn_gravar" class="btn_comandopopup">Gravar</button>
+                <button id="btn_cancelar" class="btn_comandopopup">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+
     <div id="grid" class="grid">
         <div id="titulogrid" class="titulogrid">
             <div class="colunaTituloGrid c1">ID</div>
@@ -34,7 +83,7 @@
 
     </div>
 
-    
+
     <script src="../../estoque_geral.js" type="module"></script>
     <script src="colaboladores.js" type="module"></script>
 </body>

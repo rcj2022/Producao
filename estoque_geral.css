@@ -1,9 +1,14 @@
 *{
     margin: 0px;
     padding: 0px;
+    /* box-sizing: border-box; */
 }
 body{
     overflow: hidden;
+}
+:root{
+    ---azul-principal:#005288;
+    ---fundo-janela:#ccc;
 }
 
 .menuPrincipal{
@@ -23,9 +28,9 @@ body{
 }
 .fprincipal{
    
-    height: 100%;
     width: 100%;
-    border: none;
+    height: 100vh;
+    overflow-x: hidden;
 }
 
 .menuItens{
@@ -73,7 +78,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    background-color: #248;
+    background-color: var(---azul-principal);
     color: #fff;
 
 }
@@ -99,4 +104,104 @@ body{
     justify-content: center;
     align-items: center;
 }
+.topojanela{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px 0px 10px 0px;
+}
+.btn_mainoper{
+    background-color: var(---azul-principal);
+    border-radius: 50px;
+    cursor: pointer;
+    width: 40px;
+}
 /* fim */
+
+/* Novo colaborador */
+.popup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    background-color: rgba(0,0,0,0.8);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+}
+.titulopopup{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    background-color: var(---azul-principal);
+    padding: 5px;
+    border-radius: 5px 5px 0px 0px;
+    width: 100%;
+
+}
+.corpopopup{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: var(---fundo-janela);
+    width: 100%;
+    padding: 5px;
+}
+.rodapepopup{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: var(---azul-principal);
+    border-radius: 0px 0px 5px 5px;
+    padding: 5px;
+    width: 100%;
+}
+.btn_janelaoper{
+    width: 30px;
+    cursor: pointer;
+}
+.Janelapopup{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 500px;
+}
+.btn_comandopopup{
+    background-color: rgb(3, 19, 53);
+    color: #fff;
+    text-transform: uppercase;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+}
+.campoForm{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: inherit;
+    
+}
+.campoForm input, .campoForm select{
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    width: 98%;
+}
+.campoForm label{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+    font-weight: bolder;
+    font-size: 12pt;
+}
+
+
+/* **************** */
