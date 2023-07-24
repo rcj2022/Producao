@@ -15,15 +15,15 @@
         <div>topo</div>
         <div>Colaboladores</div>
         <div>
-            <img src="/imgs/add.svg" class="btn_mainoper" title="Adicionar novo operador">
+            <img src="/imgs/add.svg" id="btn_add" class="btn_mainoper" title="Adicionar novo operador">
         </div>
     </div>
 
-    <div id="novoColaborador" class="popup">
+    <div id="novoColaborador" class="popup ocultarPopup">
         <div class="Janelapopup">
             <div class="titulopopup">
                 <div>Novo Colaborador</div>
-                <img src="../../imgs/close.svg" class="btn_janelaoper" id="btn_fechar" title="Fechar janela">
+                <img src="../../imgs/close.svg" class="btn_janelaoper" id="btn_fecharPopup" title="Fechar janela">
             </div>
             <div class="corpopopup">
                 <!-- nome -->
@@ -34,9 +34,9 @@
                 <!-- tipo -->
                 <div class="campoForm">
                     <label>Tipo</label>
-                    <select name="f_tipo" id="f_tipo">
-                        <option>Selecione</option>
-                        <option>Admistrador</option>
+                    <select name="f_tipoColab" id="f_tipoColab">
+                        <option></option>
+                        <option></option>
                     </select>
 
                 </div>
@@ -49,15 +49,32 @@
                         <option value="I">Inativo</option>
                     </select>
                 </div>
+                <!-- foto -->
+                <div class="campoForm">
+                    <label>Foto</label>
+                   <input type="file"  accept="image/png, image/jpeg,image/jpg"  name="f_foto" id="f_foto">
+                </div>
+                <div class="campoForm2">
+                    
+                   <img src="#" id="img_foto" class="img_foto">
+                </div>
                 <!--telefone -->
                 <div class="campoForm">
                     <label>Telefones</label>
-                    <input type="text" name="f_tel" id="f_tel">
+                    <input type="text" name="f_fone" id="f_fone">
+                    <div id="telefones" class="telefones">
+                        <!-- <div class="tel">
+                            <div class="Numtel">(96)99106-0648</div>
+                            <img src="../../imgs/delete.svg" class="delTel"> 
+                         
+
+                        </div> -->
+                    </div>
                 </div>
             </div>
             <div class="rodapepopup">
-                <button id="btn_gravar" class="btn_comandopopup">Gravar</button>
-                <button id="btn_cancelar" class="btn_comandopopup">Cancelar</button>
+                <button id="btn_gravarPop" class="btn_comandopopup">Gravar</button>
+                <button id="btn_cancelarPop" class="btn_comandopopup">Cancelar</button>
             </div>
         </div>
     </div>

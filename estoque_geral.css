@@ -59,7 +59,7 @@ body{
     border-radius: 5px;
     text-decoration: none;
     color: #000;
-    background-color: #888;
+    background-color: var(---azul-principal);
     text-align: center;
     color: #fff;
 
@@ -84,14 +84,14 @@ body{
 }
 .colunaTituloGrid{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 .dadosgrid{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
 }
 .linhaGrid{
     display: flex;
@@ -101,8 +101,8 @@ body{
 }
 .colunaLinhaGrid{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 .topojanela{
     display: flex;
@@ -123,13 +123,14 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-   
+    /* opacity: 0; */
     background-color: rgba(0,0,0,0.8);
     position: absolute;
     top: 0px;
     left: 0px;
     width: 100%;
     height: 100vh;
+    /* transition: all 0.3s; */
 }
 .titulopopup{
     display: flex;
@@ -169,7 +170,7 @@ body{
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    width: 500px;
+    width: 600px;
 }
 .btn_comandopopup{
     background-color: rgb(3, 19, 53);
@@ -187,20 +188,80 @@ body{
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    width: inherit;
+    width: 100%;
     
 }
-.campoForm input, .campoForm select{
+.campoForm2{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    width: 100%;
+    background-color: #fff;
+    padding: 2px;
+    border-radius: 5px;
+
+    
+}
+.campoForm input, .campoForm select {
     padding: 5px;
     border-radius: 5px;
     border: none;
-    width: 98%;
+    box-sizing: border-box;
+    background-color: #fff;
+    margin-bottom: 5px;
+    width: 100%;
 }
+/* .campoForm div{
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    box-sizing: border-box;
+    background-color: #fff;
+  
+    margin-bottom: 5px;
+} */
 .campoForm label{
     font-family: Arial, Helvetica, sans-serif;
     padding: 5px;
     font-weight: bolder;
     font-size: 12pt;
+}
+.ocultarPopup{
+    display: none !important;
+   
+}
+.telefones{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #fff;
+}
+.tel{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    margin: 5px;
+
+}
+.Numtel{
+    background-color: #888;
+    border-radius: 5px 0px 0px 5px;
+    width: 100px;
+    padding: 5px;
+
+}
+.delTel{
+    background-color: #f88 !important;
+    padding: 5px;
+    border: 5px;
+    border-radius: 0px 5px 5px 0px !important;
+    width: 19px !important;
+    cursor: pointer;
+
 }
 
 
