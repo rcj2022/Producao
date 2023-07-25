@@ -103,7 +103,13 @@ fetch(endpoint_todoscolaboradores)
                 fetch(endpoint)
                 .then(res=>res.json())
                 .then(res=>{
-                    criarcxTelefone(evt.target.value);
+                   
+                    res.forEach(t=>{
+                        
+                        criarcxTelefone(t.s_numero_telefone);
+                    })
+                    console.log(res);
+                    // 
                    
                    
 
