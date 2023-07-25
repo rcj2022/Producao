@@ -14,7 +14,25 @@ const img_foto= document.querySelector("#img_foto");
 // N=Novo colaborador | E=Editar Novo Colaborador
 
 let ModuloJanela="n";
+const criarcxTelefone=(fone)=>{
+    const divTel=document.createElement("div");
+    divTel.setAttribute("class","tel");
 
+    const Numtel=document.createElement("div");
+    Numtel.setAttribute("class","Numtel");
+    Numtel.innerHTML=fone;
+    divTel.appendChild(Numtel);
+
+    const delTel=document.createElement("img");
+    delTel.setAttribute("src","../../imgs/delete.svg");
+    delTel.setAttribute("class","delTel");
+    delTel.addEventListener("click",(evt)=>{
+        evt.target.parentNode.remove();
+    });
+    divTel.appendChild(delTel);
+
+    telefones.appendChild(divTel);
+}
 
 
 // comandos
@@ -85,11 +103,8 @@ fetch(endpoint_todoscolaboradores)
                 fetch(endpoint)
                 .then(res=>res.json())
                 .then(res=>{
-                    // console.log(res[0]);
-                    f_nome.value=res[0].s_nome_usuario;
-                    f_tipoColab.value=res[0].n_tipousuario_tipousuario;
-                    f_status.value=res[0].c_status_usuario;
-                    img_foto.src=res[0].s_foto_usuario;
+                    criarcxTelefone(evt.target.value);
+                   
                    
 
                 })
@@ -195,23 +210,24 @@ btn_cancelarPop.addEventListener("click", (evt) => {
 f_fone.addEventListener("keyup", (evt) => {
     if (evt.key == "Enter") {
         if(evt.target.value.length >= 8){
-               const divTel=document.createElement("div");
-        divTel.setAttribute("class","tel");
+            criarcxTelefone(evt.target.value);
+        // const divTel=document.createElement("div");
+        // divTel.setAttribute("class","tel");
 
-        const Numtel=document.createElement("div");
-        Numtel.setAttribute("class","Numtel");
-        Numtel.innerHTML=evt.target.value;
-        divTel.appendChild(Numtel);
+        // const Numtel=document.createElement("div");
+        // Numtel.setAttribute("class","Numtel");
+        // Numtel.innerHTML=evt.target.value;
+        // divTel.appendChild(Numtel);
 
-        const delTel=document.createElement("img");
-        delTel.setAttribute("src","../../imgs/delete.svg");
-        delTel.setAttribute("class","delTel");
-        delTel.addEventListener("click",(evt)=>{
-            evt.target.parentNode.remove();
-        });
-        divTel.appendChild(delTel);
+        // const delTel=document.createElement("img");
+        // delTel.setAttribute("src","../../imgs/delete.svg");
+        // delTel.setAttribute("class","delTel");
+        // delTel.addEventListener("click",(evt)=>{
+        //     evt.target.parentNode.remove();
+        // });
+        // divTel.appendChild(delTel);
 
-        telefones.appendChild(divTel);
+        // telefones.appendChild(divTel);
 
         evt.target.value="";
         }else{
