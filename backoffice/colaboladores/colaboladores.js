@@ -68,7 +68,7 @@ fetch(endpoint_todoscolaboradores)
                 const id=evt.target.parentNode.parentNode.firstChild.innerHTML;
                 ModuloJanela="e";
                 document.getElementById("titulopopup").innerHTML="Editar Colaborador";
-                const endpoint=`http://127.0.0.1:1880/dadoscolab/${id}`;
+                let endpoint=`http://127.0.0.1:1880/dadoscolab/${id}`;
                 fetch(endpoint)
                 .then(res=>res.json())
                 .then(res=>{
@@ -78,6 +78,19 @@ fetch(endpoint_todoscolaboradores)
                     f_status.value=res[0].c_status_usuario;
                     img_foto.src=res[0].s_foto_usuario;
                     novoColaborador.classList.remove("ocultarPopup");
+
+                })
+
+                endpoint=`http://127.0.0.1:1880/telefonescolab/${id}`;
+                fetch(endpoint)
+                .then(res=>res.json())
+                .then(res=>{
+                    // console.log(res[0]);
+                    f_nome.value=res[0].s_nome_usuario;
+                    f_tipoColab.value=res[0].n_tipousuario_tipousuario;
+                    f_status.value=res[0].c_status_usuario;
+                    img_foto.src=res[0].s_foto_usuario;
+                   
 
                 })
 
