@@ -22,7 +22,7 @@ const endpoint_todoscolaboradores = `http://127.0.0.1:1880/todosUsuarios`;
 fetch(endpoint_todoscolaboradores)
     .then(res => res.json())
     .then(res => {
-        console.log(res);
+       
         dadosgrid.innerHTML = "";
         res.forEach(e => {
             const divlinha = document.createElement("div");
@@ -68,10 +68,20 @@ fetch(endpoint_todoscolaboradores)
                 const id=evt.target.parentNode.parentNode.firstChild.innerHTML;
                 ModuloJanela="e";
                 document.getElementById("titulopopup").innerHTML="Editar Colaborador";
-                endpointEditar=`http://127.0.0.1:1880/dadoscolab`;
-                fetch();
-                novoColaborador.classList.remove("ocultarPopup");
+                const endpoint=`http://127.0.0.1:1880/dadoscolab/${id}`;
+                fetch(endpoint)
+                .then(res=>res.json())
+                .then(res=>{
+                    // console.log(res[0]);
+                    f_nome.value=res[0].s_nome_usuario;
+                    f_tipoColab.value=res[0].n_tipousuario_tipousuario;
+                    f_status.value=res[0].c_status_usuario;
+                    img_foto.src=res[0].s_foto_usuario;
+                    novoColaborador.classList.remove("ocultarPopup");
 
+                })
+
+              
             });
             divc5.appendChild(img_editar);
 
