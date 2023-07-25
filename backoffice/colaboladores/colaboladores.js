@@ -11,6 +11,11 @@ const f_status = document.querySelector("#f_status");
 const f_foto= document.querySelector("#f_foto");
 const img_foto= document.querySelector("#img_foto");
 
+// N=Novo colaborador | E=Editar Novo Colaborador
+
+let ModuloJanela="n";
+
+
 
 // comandos
 const endpoint_todoscolaboradores = `http://127.0.0.1:1880/todosUsuarios`;
@@ -50,6 +55,32 @@ fetch(endpoint_todoscolaboradores)
             divc5.setAttribute("class", "colunaLinhaGrid c5");
             divlinha.appendChild(divc5);
 
+            // const img_status=document.createElement("img");
+            // img_status.setAttribute("src", "../../imgs/on.svg");
+            // img_status.setAttribute("class", "icone_op");
+            // divc5.appendChild(img_status);
+
+            const img_editar=document.createElement("img");
+            img_editar.setAttribute("src", "../../imgs/edit.svg");
+            img_editar.setAttribute("class", "icone_op");
+            img_editar.addEventListener("click",(evt)=>{
+                // editar dados
+                const id=evt.target.parentNode.parentNode.firstChild.innerHTML;
+                ModuloJanela="e";
+                document.getElementById("titulopopup").innerHTML="Editar Colaborador";
+                endpointEditar=`http://127.0.0.1:1880/dadoscolab`;
+                fetch();
+                novoColaborador.classList.remove("ocultarPopup");
+
+            });
+            divc5.appendChild(img_editar);
+
+            const img_delete=document.createElement("img");
+            img_delete.setAttribute("src", "../../imgs/delete.svg");
+            img_delete.setAttribute("class", "icone_op");
+            divc5.appendChild(img_delete);
+
+
 
 
 
@@ -75,6 +106,9 @@ fetch(endpoint_tiposColab)
     })
 
 btn_add.addEventListener("click", (evt) => {
+    
+    ModuloJanela="n";
+    document.getElementById("titulopopup").innerHTML="Novo Colaborador";
     novoColaborador.classList.remove("ocultarPopup");
 
 });
@@ -120,12 +154,12 @@ btn_gravarPop.addEventListener("click", (evt) => {
             f_foto.value="";
             img_foto.setAttribute("src","#");
             telefones.innerHTML="";
-          
+            novoColaborador.classList.add("ocultarPopup");
 
             
         }else{
             alert("Erro ao grava Novo colaborador");
-            
+            novoColaborador.classList.add("ocultarPopup");
         }
     })
     

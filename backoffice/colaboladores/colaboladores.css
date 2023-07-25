@@ -1,5 +1,5 @@
 body{
-    overflow:auto !important;
+    overflow:hidden !important;
 }
 .c1{
     width: 100px;
@@ -15,6 +15,8 @@ body{
 }
 .c5{
     width: 100px;
+    display: flex;
+    justify-content: space-around;
 }
 h1{
     text-align: center;

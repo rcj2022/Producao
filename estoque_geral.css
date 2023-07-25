@@ -66,6 +66,15 @@ body{
   
 }
 /* Formatação de Grids */
+.areaGrid{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    
+}
 .grid{
 
     display: flex;
@@ -80,12 +89,14 @@ body{
     flex-direction: row;
     background-color: var(---azul-principal);
     color: #fff;
+    padding: 1px;
 
 }
 .colunaTituloGrid{
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+    
 }
 .dadosgrid{
     display: flex;
@@ -98,6 +109,18 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    padding: 1px;
+}
+.linhaGrid:nth-child(even){
+    background-color: #fff;
+}
+.linhaGrid:nth-child(odd){
+    background-color: #ddd;
+}
+.linhaGrid:hover{
+    background-color: #0ac !important;
+    color: #fff !important;
+
 }
 .colunaLinhaGrid{
     display: flex;
@@ -262,6 +285,10 @@ body{
     width: 19px !important;
     cursor: pointer;
 
+}
+.icone_op{
+    width: 25px;
+    cursor: pointer;
 }
 
 

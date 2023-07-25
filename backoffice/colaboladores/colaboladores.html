@@ -22,7 +22,7 @@
     <div id="novoColaborador" class="popup ocultarPopup">
         <div class="Janelapopup">
             <div class="titulopopup">
-                <div>Novo Colaborador</div>
+                <div id="titulopopup">Novo Colaborador</div>
                 <img src="../../imgs/close.svg" class="btn_janelaoper" id="btn_fecharPopup" title="Fechar janela">
             </div>
             <div class="corpopopup">
@@ -52,11 +52,11 @@
                 <!-- foto -->
                 <div class="campoForm">
                     <label>Foto</label>
-                   <input type="file"  accept="image/png, image/jpeg,image/jpg"  name="f_foto" id="f_foto">
+                    <input type="file" accept="image/png, image/jpeg,image/jpg" name="f_foto" id="f_foto">
                 </div>
                 <div class="campoForm2">
-                    
-                   <img src="#" id="img_foto" class="img_foto">
+
+                    <img src="#" id="img_foto" class="img_foto">
                 </div>
                 <!--telefone -->
                 <div class="campoForm">
@@ -79,27 +79,29 @@
         </div>
     </div>
 
+    <div id="areaGrid" class="areaGrid">
 
-    <div id="grid" class="grid">
-        <div id="titulogrid" class="titulogrid">
-            <div class="colunaTituloGrid c1">ID</div>
-            <div class="colunaTituloGrid c2">Nome</div>
-            <div class="colunaTituloGrid c3">Tipo</div>
-            <div class="colunaTituloGrid c4">Status</div>
-            <div class="colunaTituloGrid c5">Ações</div>
-        </div>
-        <div id="dadosgrid" class="dadosgrid">
-            <!-- <div class="linhaGrid"></div>
+
+        <div id="grid" class="grid">
+            <div id="titulogrid" class="titulogrid">
+                <div class="colunaTituloGrid c1">ID</div>
+                <div class="colunaTituloGrid c2">Nome</div>
+                <div class="colunaTituloGrid c3">Tipo</div>
+                <div class="colunaTituloGrid c4">Status</div>
+                <div class="colunaTituloGrid c5">Ações</div>
+            </div>
+            <div id="dadosgrid" class="dadosgrid">
+                <!-- <div class="linhaGrid"></div>
             <div class="colunaLinhaGrid c1">ID</div>
             <div class="colunaLinhaGrid c2">Nome</div>
             <div class="colunaLinhaGrid c3">Título</div>
             <div class="colunaLinhaGrid c4">Status</div>
             <div class="colunaLinhaGrid c5">Ações</div> -->
 
+            </div>
+
         </div>
-
     </div>
-
 
     <script src="../../estoque_geral.js" type="module"></script>
     <script src="colaboladores.js" type="module"></script>
