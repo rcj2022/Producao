@@ -14,13 +14,17 @@ const img_foto= document.querySelector("#img_foto");
 // N=Novo colaborador | E=Editar Novo Colaborador
 
 let ModuloJanela="n";
-const criarcxTelefone=(fone,idtel)=>{
+const criarcxTelefone=(fone,idtel,tipo)=>{
 
     const divTel=document.createElement("div");
     divTel.setAttribute("class","tel");
 
     const Numtel=document.createElement("div");
-    Numtel.setAttribute("class","Numtel");
+    if(tipo=="n"){
+    Numtel.setAttribute("class","Numtel novoTel");
+    }else{
+        Numtel.setAttribute("class","Numtel editarTel");
+    }
     Numtel.innerHTML=fone;
     divTel.appendChild(Numtel);
 
@@ -29,6 +33,9 @@ const criarcxTelefone=(fone,idtel)=>{
     delTel.setAttribute("class","delTel");
     delTel.setAttribute("data-idtel",idtel);
     delTel.addEventListener("click",(evt)=>{
+
+        if(idtel="-1"){
+
         const objTel=evt.target;
         const idtel=objTel.dataset.idtel;
 
@@ -40,8 +47,14 @@ const criarcxTelefone=(fone,idtel)=>{
         }
 
     })
+}else{
+    evt.target.parentNode.remove();
+}
+
+
         
     });
+
     divTel.appendChild(delTel);
 
     telefones.appendChild(divTel);
@@ -104,7 +117,7 @@ fetch(endpoint_todoscolaboradores)
                 fetch(endpoint)
                 .then(res=>res.json())
                 .then(res=>{
-                    // console.log(res[0]);
+                    btn_gravarPop.setAttribute("data-idcolab",id);
                     f_nome.value=res[0].s_nome_usuario;
                     f_tipoColab.value=res[0].n_tipousuario_tipousuario;
                     f_status.value=res[0].c_status_usuario;
@@ -123,7 +136,7 @@ fetch(endpoint_todoscolaboradores)
                     res.forEach(t=>{
                         // console.log(t);
                         
-                        criarcxTelefone(t.s_numero_telefone,t.n_telefone_telefone
+                        criarcxTelefone(t.s_numero_telefone,t.n_telefone_telefone,"e"
                             );
                     })
                     // console.log(res);
@@ -183,7 +196,7 @@ btn_fecharPopup.addEventListener("click", (evt) => {
 btn_gravarPop.addEventListener("click", (evt) => {
 
     // novoColaborador.classList.add("ocultarPopup");
-    const tels=[...document.querySelectorAll(".Numtel")];
+    const tels=[...document.querySelectorAll(".novoTel")];
     let numTels=[];
     tels.forEach(t=>{
         numTels.push(t.innerHTML);
@@ -191,6 +204,8 @@ btn_gravarPop.addEventListener("click", (evt) => {
     });
 
     const dados={
+
+        n_usuario_usuario:evt.target.dataset.idcolab,
         s_nome_usuario:f_nome.value,
         n_tipousuario_tipousuario:f_tipoColab.value,
         c_status_usuario:f_status.value,
@@ -204,8 +219,15 @@ btn_gravarPop.addEventListener("click", (evt) => {
         method:'POST',
         body:JSON.stringify(dados) 
     }
-    const endpointnovocolab=`http://127.0.0.1:1880/novocolab`
-    fetch(endpointnovocolab,cab)
+    let endpointNovocoEditarlab=null;
+
+    if(ModuloJanela=="n"){
+        endpointNovocoEditarlab=`http://127.0.0.1:1880/novocolab`
+    }else{
+        endpointNovocoEditarlab=`http://127.0.0.1:1880/editarcolab`
+    }
+  
+    fetch(endpointNovocoEditarlab,cab)
     .then(res=>{
         if(res.status==200){
 
@@ -234,7 +256,7 @@ btn_cancelarPop.addEventListener("click", (evt) => {
 f_fone.addEventListener("keyup", (evt) => {
     if (evt.key == "Enter") {
         if(evt.target.value.length >= 8){
-            criarcxTelefone(evt.target.value);
+            criarcxTelefone(evt.target.value,"-1","n");
         // const divTel=document.createElement("div");
         // divTel.setAttribute("class","tel");
 
