@@ -82,6 +82,7 @@ fetch(endpoint_todoscolaboradores)
             img_editar.setAttribute("src", "../../imgs/edit.svg");
             img_editar.setAttribute("class", "icone_op");
             img_editar.addEventListener("click",(evt)=>{
+               
                 // editar dados
                 const id=evt.target.parentNode.parentNode.firstChild.innerHTML;
                 ModuloJanela="e";
@@ -100,9 +101,11 @@ fetch(endpoint_todoscolaboradores)
                 })
 
                 endpoint=`http://127.0.0.1:1880/telefonescolab/${id}`;
+                
                 fetch(endpoint)
                 .then(res=>res.json())
                 .then(res=>{
+                    telefones.innerHTML="";
                    
                     res.forEach(t=>{
                         
