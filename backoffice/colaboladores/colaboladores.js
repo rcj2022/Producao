@@ -14,7 +14,8 @@ const img_foto= document.querySelector("#img_foto");
 // N=Novo colaborador | E=Editar Novo Colaborador
 
 let ModuloJanela="n";
-const criarcxTelefone=(fone)=>{
+const criarcxTelefone=(fone,idtel)=>{
+
     const divTel=document.createElement("div");
     divTel.setAttribute("class","tel");
 
@@ -26,8 +27,20 @@ const criarcxTelefone=(fone)=>{
     const delTel=document.createElement("img");
     delTel.setAttribute("src","../../imgs/delete.svg");
     delTel.setAttribute("class","delTel");
+    delTel.setAttribute("data-idtel",idtel);
     delTel.addEventListener("click",(evt)=>{
-        evt.target.parentNode.remove();
+        const objTel=evt.target;
+        const idtel=objTel.dataset.idtel;
+
+    const endpoint_delTel= `http://127.0.0.1:1880/deletartelefone/${idtel}`;
+    fetch(endpoint_delTel)
+    .then(res=>{
+        if(res.status==200){
+            evt.target.parentNode.remove();
+        }
+
+    })
+        
     });
     divTel.appendChild(delTel);
 
@@ -108,10 +121,12 @@ fetch(endpoint_todoscolaboradores)
                     telefones.innerHTML="";
                    
                     res.forEach(t=>{
+                        // console.log(t);
                         
-                        criarcxTelefone(t.s_numero_telefone);
+                        criarcxTelefone(t.s_numero_telefone,t.n_telefone_telefone
+                            );
                     })
-                    console.log(res);
+                    // console.log(res);
                     // 
                    
                    
