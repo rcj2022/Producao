@@ -185,6 +185,12 @@ btn_add.addEventListener("click", (evt) => {
     ModuloJanela="n";
     document.getElementById("titulopopup").innerHTML="Novo Colaborador";
     novoColaborador.classList.remove("ocultarPopup");
+    f_nome.value="";
+    f_tipoColab.value="";
+    f_status.value="";
+    f_foto.value="";
+    img_foto.setAttribute("src","#");
+    telefones.innerHTML="";
 
 });
 
